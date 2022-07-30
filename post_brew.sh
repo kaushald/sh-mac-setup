@@ -68,7 +68,6 @@ clear
 
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Starting $(gum style --foreground 212 'GIT Setup')."
 
-echo "Git config"
 
 git config --global user.name "$NAME"
 git config --global user.email "$EMAIL"
@@ -91,6 +90,13 @@ done
 
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Staring $(gum style --foreground 212 'CASKS Installs')."
 
+brew install --cask microsoft-edge
+
+for TOOL in 1password calibre handbrake postman telegram adobe-creative-cloud docker iterm2 notion royal-tsx vlc alfred font-meslo-nerd-font jetbrains-toolbox obs signal bartender gitkraken lens parallels slack beyond-compare google-chrome parallels-toolbox sublime-text microsoft-excel microsoft-word microsoft-excel microsoft-outlook  microsoft-teams microsoft-powerpoint
+do
+    gum spin -s monkey --title " Installing $TOOL..." -- brew install --cask $TOOL
+    echo -e "\n\n :pager: Installed $TOOL \n\n" | gum format -t emoji
+done
 
 #############################################################################################
 # FISH
@@ -98,17 +104,15 @@ gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "
 
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Staring $(gum style --foreground 212 'FISH Setup')."
 
-gum spin -s monkey --title " Installing fisher..." -- curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-echo -e "\n\n :pager: Installed fisher \n\n" | gum format -t emoji
-
-
-gum spin -s monkey --title " Installing fisher..." -- fish_add_path /opt/homebrew/bin
-echo -e "\n\n :computer: Added brew to fish path \n\n" | gum format -t emoji
-
+sudo echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+sudo chsh -s /opt/homebrew/bin/fish
 
 echo -e "\n\n :computer: Switch to fish and install plugins :computer:" | gum format -t emoji
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "$(gum style --foreground 212 "\
-"'fisher install jorgebucaran/nvm.fish'"\
+"'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher'"\
+" 'chsh -s /opt/homebrew/bin/fish'"\
+" 'fish_add_path /opt/homebrew/bin'"\
+" 'fisher install jorgebucaran/nvm.fish'"\
 " 'fisher install IlanCosman/tide@v5'"\
 " 'fisher install PatrickF1/fzf.fish'"\
 " 'fzf_configure_bindings --help'"\
@@ -117,3 +121,54 @@ gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "
 " 'pipx install dunk'"\
 " 'fisher install jorgebucaran/autopair.fish')"
 
+#############################################################################################
+# CONFIF
+#############################################################################################
+
+#"Expanding the save panel by default"
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+#"Saving to disk (not to iCloud) by default"
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+#"Check for software updates daily, not just once per week"
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+#"Enabling subpixel font rendering on non-Apple LCDs"
+defaults write NSGlobalDomain AppleFontSmoothing -int 2
+
+#"Showing icons for hard drives, servers, and removable media on the desktop"
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+
+#"Showing all filename extensions in Finder by default"
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+#"Disabling the warning when changing a file extension"
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+#"Use column view in all Finder windows by default"
+defaults write com.apple.finder FXPreferredViewStyle Clmv
+
+#"Avoiding the creation of .DS_Store files on network volumes"
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+#"Enabling snap-to-grid for icons on the desktop and in other icon views"
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+
+#"Setting the icon size of Dock items to 36 pixels for optimal size/screen-realestate"
+defaults write com.apple.dock tilesize -int 36
+
+#"Speeding up Mission Control animations and grouping windows by application"
+defaults write com.apple.dock expose-animation-duration -float 0.1
+defaults write com.apple.dock "expose-group-by-app" -bool true
+
+# Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+gum confirm "Are you Done?" && echo "Great! Proceeding..."  && sleep 1 && clear || echo "Too bad! Proceeding..." && sleep 1 && clear
+
+killall Finder
