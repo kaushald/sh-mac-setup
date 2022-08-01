@@ -30,19 +30,13 @@ gum spin -s monkey --title "Saving email..." -- sleep 2 && clear
 
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Starting $(gum style --foreground 212 'SSH Setup')."
 
-gum spin --spinner monkey --title "Deleting existing SSH keys..." -- rm -rf ~/.ssh/
-
-gum spin --spinner monkey --title "Creating a new SSH key..." -- ssh-keygen -t ed25519 -C "$EMAIL" -f ~/.ssh/id_ed25519 -q -P ""
-
-gum spin --spinner monkey --title "Loading SSH key..." -- eval "$(ssh-agent -s)"
-
-gum spin --spinner monkey --title "Creating file..." -- touch ~/.ssh/config
-
-gum spin --spinner monkey --title "Updating file..." -- echo -e "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_ed25519" >> ~/.ssh/config
-
-gum spin --spinner monkey --title "Adding key..." -- ssh-add -K ~/.ssh/id_ed25519
-
-gum spin --spinner monkey --title "Copying key..." -- pbcopy < ~/.ssh/id_ed25519.pub
+rm -rf ~/.ssh/
+sh-keygen -t ed25519 -C "$EMAIL" -f ~/.ssh/id_ed25519 -q -P ""
+eval "$(ssh-agent -s)"
+touch ~/.ssh/config
+echo -e "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_ed25519" >> ~/.ssh/config
+ssh-add -K ~/.ssh/id_ed25519
+pbcopy < ~/.ssh/id_ed25519.pub
 
 echo -e "Copy the key to your clipboard using - $(gum style --foreground 212 "pbcopy < ~/.ssh/id_ed25519.pub")\n\nand then please add this public key to Github - $(gum style --foreground 212 "https://github.com/account/ssh").\n\n"
 
