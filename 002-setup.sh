@@ -66,13 +66,15 @@ gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "
 git config --global user.name "$NAME"
 git config --global user.email "$EMAIL"
 
+clear
+
 #############################################################################################
 # BREW
 #############################################################################################
 
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Starting $(gum style --foreground 212 'BREW Installs')."
 
-for TOOL in fish gh exa gradle sqlite fzf k9s pipx fd kubernetes-cli bat
+for TOOL in fish gh exa gradle sqlite fzf k9s pipx fd kubernetes-cli bat flyctl
 do
     gum spin -s monkey --title " Installing $TOOL..." -- brew install $TOOL
     echo -e "\n\n :pager: Installed $TOOL \n\n" | gum format -t emoji
@@ -84,11 +86,9 @@ done
 
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Staring $(gum style --foreground 212 'CASKS Installs')."
 
-brew install --cask microsoft-edge
-
-for TOOL in 1password calibre handbrake postman telegram adobe-creative-cloud docker iterm2 notion royal-tsx vlc alfred font-meslo-nerd-font jetbrains-toolbox obs signal bartender gitkraken lens parallels slack beyond-compare google-chrome parallels-toolbox sublime-text microsoft-excel microsoft-word microsoft-excel microsoft-outlook  microsoft-teams microsoft-powerpoint
+for TOOL in microsoft-edge google-chrome visual-studio-code font-fira-code 1password calibre handbrake postman telegram adobe-creative-cloud docker iterm2 notion royal-tsx vlc alfred font-meslo-nerd-font jetbrains-toolbox obs signal bartender gitkraken lens parallels slack beyond-compare parallels-toolbox sublime-text microsoft-excel microsoft-word microsoft-excel microsoft-outlook  microsoft-teams microsoft-powerpoint
 do
-    gum spin -s monkey --title " Installing $TOOL..." -- brew install --cask $TOOL
+    brew install --cask $TOOL
     echo -e "\n\n :pager: Installed $TOOL \n\n" | gum format -t emoji
 done
 
