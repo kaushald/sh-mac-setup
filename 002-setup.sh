@@ -86,7 +86,7 @@ done
 
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Staring $(gum style --foreground 212 'CASKS Installs')."
 
-for TOOL in microsoft-edge google-chrome visual-studio-code font-fira-code 1password calibre handbrake postman telegram adobe-creative-cloud docker iterm2 notion royal-tsx vlc alfred font-meslo-nerd-font jetbrains-toolbox obs signal bartender gitkraken lens parallels slack beyond-compare parallels-toolbox sublime-text microsoft-excel microsoft-word microsoft-excel microsoft-outlook  microsoft-teams microsoft-powerpoint
+for TOOL in 1password beyond-compare docker handbrake microsoft-auto-update microsoft-powerpoint notion royal-tsx telegram whatsapp adobe-creative-cloud brave-browser firefox iterm2 microsoft-edge microsoft-teams obs signal tidal zoom alfred calibre gitkraken jetbrains-toolbox microsoft-excel microsoft-word parallels-toolbox slack visual-studio-code bartender discord google-chrome lens microsoft-outlook mysqlworkbench postman sublime-text vlc
 do
     brew install --cask $TOOL
     echo -e "\n\n :pager: Installed $TOOL \n\n" | gum format -t emoji
