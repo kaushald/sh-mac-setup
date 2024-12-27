@@ -48,7 +48,30 @@ else
 fi
 
 ################################################################################
-# 3. Install fish plugins
+# 3. Add brew path
+################################################################################
+if [[ "$(uname -m)" == "arm64" ]]; then
+  FISH_HOMEBREW_PATH="/opt/homebrew/bin"
+else
+  FISH_HOMEBREW_PATH="/usr/local/bin"
+fi
+
+gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 \
+  "Adding Homebrew bin to Fish config..."
+
+# Ensure ~/.config/fish exists
+mkdir -p "${HOME}/.config/fish"
+
+# Append a small snippet to config.fish if not already present
+if ! grep -Fq "$FISH_HOMEBREW_PATH" "${HOME}/.config/fish/config.fish" 2>/dev/null; then
+  echo "fish_add_path $FISH_HOMEBREW_PATH" >>"${HOME}/.config/fish/config.fish"
+  gum style --foreground "10" "Added: fish_add_path $FISH_HOMEBREW_PATH to config.fish"
+else
+  gum style --foreground "10" "Path $FISH_HOMEBREW_PATH already in config.fish. Skipping..."
+fi
+
+################################################################################
+# 4. Install fish plugins
 ################################################################################
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 \
   "Install Fish Plugins"
