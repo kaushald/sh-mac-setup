@@ -37,6 +37,7 @@ CASKS=(
   jetbrains-toolbox
   kitty
   lens
+  linear-linear
   microsoft-auto-update
   microsoft-edge
   microsoft-excel
