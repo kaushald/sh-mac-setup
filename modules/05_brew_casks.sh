@@ -54,13 +54,9 @@ CASKS=(
   postman
   rar
   royal-tsx
-  signal
-  slack
   spotify
   steam
   sublime-text
-  telegram
-  tidal
   visual-studio-code
   vlc
   warp
@@ -90,9 +86,7 @@ for CASK in "${CASKS[@]}"; do
   if brew list --cask | grep -q "^${CASK}\$"; then
     gum style --foreground "10" "Already installed: $CASK. Skipping..."
   else
-    gum spin --spinner line --title "brew install --cask $CASK..." -- \
-      brew install --cask "$CASK"
-    gum style --foreground "10" "Installed: $CASK"
+    brew install --cask "$CASK"
   fi
 done
 
