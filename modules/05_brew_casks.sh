@@ -28,6 +28,7 @@ CASKS=(
   docker
   elgato-stream-deck
   firefox
+  ghostty
   gitkraken
   google-chrome
   google-cloud-sdk
