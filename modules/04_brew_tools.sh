@@ -29,6 +29,7 @@ TOOLS=(
   jq
   k9s
   kubernetes-cli
+  lazygit
   pipx
   poppler
   ripgrep
