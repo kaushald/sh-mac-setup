@@ -30,6 +30,7 @@ TOOLS=(
   k9s
   kubernetes-cli
   lazygit
+  nushell
   pipx
   poppler
   ripgrep

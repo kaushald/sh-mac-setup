@@ -24,6 +24,7 @@ CASKS=(
   beyond-compare
   brave-browser
   calibre
+  chatgpt
   discord
   docker
   elgato-stream-deck
