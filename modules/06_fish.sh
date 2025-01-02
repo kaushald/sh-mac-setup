@@ -80,8 +80,7 @@ gum style --margin "1" --foreground 99 \
   "We'll install 'fisher' plugin manager and some common plugins (example)."
 
 if gum confirm "Proceed with Fish plugin installation?"; then
-  fish -c "curl -sL https://git.io/fisher | source && fisher update"
-  fish -c "fisher install jorgebucaran/fisher"
+  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
   # Add whatever plugins you’d like:
   fish -c "fisher install jorgebucaran/nvm.fish"
