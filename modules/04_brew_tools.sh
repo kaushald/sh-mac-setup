@@ -37,6 +37,7 @@ TOOLS=(
   ripgrep
   sevenzip
   sqlite
+  tlrc
   yazi
   zoxide
 )
