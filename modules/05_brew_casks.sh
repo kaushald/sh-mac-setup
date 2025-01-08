@@ -37,7 +37,6 @@ CASKS=(
   iterm2
   jetbrains-toolbox
   kitty
-  lens
   linear-linear
   microsoft-auto-update
   microsoft-edge
@@ -51,6 +50,7 @@ CASKS=(
   mysqlworkbench
   notion
   obs
+  openlens
   openscad
   parallels-toolbox
   postman
