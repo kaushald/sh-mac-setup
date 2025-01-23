@@ -62,6 +62,7 @@ CASKS=(
   visual-studio-code
   vlc
   warp
+  weka
   whatsapp
   zed
   zoom
