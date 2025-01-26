@@ -44,6 +44,7 @@ CASKS=(
   microsoft-onenote
   microsoft-outlook
   microsoft-powerpoint
+  microsoft-remote-desktop
   microsoft-teams
   microsoft-word
   mongodb-compass
