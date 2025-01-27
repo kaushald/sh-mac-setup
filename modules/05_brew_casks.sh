@@ -34,6 +34,7 @@ CASKS=(
   google-chrome
   google-cloud-sdk
   handbrake
+  insta360-studio
   iterm2
   jetbrains-toolbox
   kitty
