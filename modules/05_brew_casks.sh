@@ -52,6 +52,7 @@ CASKS=(
   mysqlworkbench
   notion
   obs
+  ollama
   openlens
   openscad
   parallels-toolbox
