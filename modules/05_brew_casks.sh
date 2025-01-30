@@ -68,6 +68,7 @@ CASKS=(
   weka
   whatsapp
   zed
+  zen-browser
   zoom
 )
 
