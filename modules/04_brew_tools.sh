@@ -15,6 +15,7 @@ fi
 
 TOOLS=(
   bat
+  curlie
   eza
   fd
   ffmpeg
@@ -30,6 +31,7 @@ TOOLS=(
   k9s
   kubernetes-cli
   lazygit
+  mas
   nushell
   nvim
   pipx
