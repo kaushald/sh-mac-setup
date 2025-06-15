@@ -25,6 +25,7 @@ TOOLS=(
   font-symbols-only-nerd-font
   fzf
   gh
+  ghostscript
   gradle
   imagemagick
   jq
