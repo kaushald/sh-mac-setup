@@ -25,6 +25,8 @@ CASKS=(
   brave-browser
   calibre
   chatgpt
+  claude
+  claude-code
   discord
   docker
   elgato-stream-deck
