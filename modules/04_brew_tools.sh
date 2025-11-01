@@ -16,6 +16,7 @@ fi
 TOOLS=(
   bat
   curlie
+  chezmoi
   eza
   fd
   ffmpeg

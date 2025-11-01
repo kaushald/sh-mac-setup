@@ -38,6 +38,7 @@ CASKS=(
   iterm2
   jetbrains-toolbox
   kitty
+  karabiner-elements
   linear-linear
   microsoft-auto-update
   microsoft-edge
@@ -58,6 +59,7 @@ CASKS=(
   parallels-toolbox
   postman
   rar
+  raycast
   royal-tsx
   spotify
   steam
