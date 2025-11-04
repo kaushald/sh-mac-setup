@@ -42,6 +42,7 @@ TOOLS=(
   sevenzip
   sqlite
   tlrc
+  uv
   yazi
   zoxide
 )
